@@ -66,4 +66,14 @@ document.addEventListener('DOMContentLoaded', function () {
             el.style.borderColor = '';
         });
     }
+
+    // ---- Afficher/masquer les formulaires de modification (items.php) ----
+    document.querySelectorAll('.edit-toggle').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            var target = document.getElementById(btn.dataset.target);
+            if (target) {
+                target.style.display = (target.style.display === 'none' || !target.style.display) ? 'flex' : 'none';
+            }
+        });
+    });
 });

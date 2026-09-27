@@ -1,0 +1,10 @@
+# Fichiers système
+.DS_Store
+Thumbs.db
+
+# Dossiers XAMPP éventuels
+*.log
+
+# Ne pas versionner les fichiers de config locale sensibles si tu en ajoutes plus tard
+# (par exemple si tu déplaces les identifiants Gmail/MySQL dans un .env)
+.env

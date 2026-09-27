@@ -65,6 +65,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
+    if (isset($_POST['action_update'], $_POST['id'])) {
+        if (strlen($title) < 2 || $price === false) {
+            $item_message = ['success' => false, 'text' => 'Titre ou prix invalide.'];
+        } else {
+            items_update((int) $_POST['id'], $title, $description, (float) $price);
+            $item_message = ['success' => true, 'text' => 'Élément modifié avec succès.'];
+        }
+    }
+
     if (isset($_POST['action_delete'], $_POST['id'])) {
         items_delete((int) $_POST['id']);
         $item_message = ['success' => true, 'text' => 'Élément supprimé.'];

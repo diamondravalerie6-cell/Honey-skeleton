@@ -10,6 +10,8 @@ require 'includes/contact-handler.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Honey Group - Skeleton de base pour sites web modulaires, responsive et sécurisés.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍯</text></svg>">
     <title>Honey Group - Skeleton</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -78,6 +80,6 @@ require 'includes/contact-handler.php';
 
     <?php include 'includes/footer.php'; ?>
 
-    <script src="js/script.js"></script>
+    <script src="js/script.js?v=2"></script>
 </body>
 </html>

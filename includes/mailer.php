@@ -13,9 +13,9 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 // ---- Identifiants à configurer ----
-define('SMTP_USERNAME', 'diamondravalerie6@gmai.com');   // Ton adresse Gmail
-define('SMTP_APP_PASSWORD', 'bodokely');    // Le code à 16 caractères (sans espaces)
-define('SMTP_TO_EMAIL', 'diamondravalerie6@gmail.com');   // Où recevoir les messages (peut être la même adresse)
+define('SMTP_USERNAME', 'ton.adresse@gmail.com');   // Ton adresse Gmail
+define('SMTP_APP_PASSWORD', 'abcdefghijklmnop');    // Le code à 16 caractères (sans espaces)
+define('SMTP_TO_EMAIL', 'ton.adresse@gmail.com');   // Où recevoir les messages (peut être la même adresse)
 
 /**
  * Envoie un email via Gmail SMTP.

@@ -69,8 +69,8 @@ Le squelette inclut désormais la connexion et un CRUD complet :
 ```
 sql/schema.sql              → Script de création de la base + tables (items, messages)
 includes/db.php             → Connexion PDO sécurisée (requêtes préparées)
-includes/items-handler.php  → Fonctions CRUD (create, read, update, delete)
-items.php                   → Page de démonstration : liste, ajoute, supprime des éléments
+includes/items-handler.php  → Fonctions CRUD complètes (create, read, update, delete)
+items.php                   → Page de démonstration : liste, ajoute, modifie, supprime des éléments
 ```
 
 ### Mise en place
@@ -94,10 +94,8 @@ dans la table `messages`.
 
 ### Pour aller plus loin
 
-- Ajouter la mise à jour (`items_update()` existe déjà dans `items-handler.php`,
-  il ne reste qu'à créer le formulaire d'édition).
 - Ajouter une pagination si la liste d'éléments devient longue.
-- Déplacer les identifiants de `db.php` dans un fichier `.env` non versionné.
+- Déplacer les identifiants de `db.php` et `mailer.php` dans un fichier `.env` non versionné, pour ne jamais exposer de mots de passe dans le code source partagé.
 
 ## 7. Bonnes pratiques à conserver
 

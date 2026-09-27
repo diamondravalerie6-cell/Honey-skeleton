@@ -7,6 +7,7 @@
  * - Retourne un tableau ['success' => bool, 'message' => string].
  */
 require_once __DIR__ . '/db.php';
+require_once __DIR__ . '/mailer.php';
 
 function save_message_to_db(string $name, string $email, string $message): bool
 {
@@ -44,6 +45,9 @@ function handle_contact_form(array $post): array
     } catch (PDOException $e) {
         return ['success' => false, 'message' => "Erreur lors de l'enregistrement, veuillez réessayer."];
     }
+
+    // L'échec de l'envoi d'email n'empêche pas le message d'être enregistré en base.
+    send_contact_email($name, $email, $message);
 
     return ['success' => true, 'message' => 'Merci ' . htmlspecialchars($name) . ', votre message a bien été reçu.'];
 }

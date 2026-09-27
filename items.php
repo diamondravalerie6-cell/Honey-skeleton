@@ -10,6 +10,8 @@ require 'includes/items-handler.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Honey Group - Gestion des éléments, démonstration CRUD connectée à MySQL.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍯</text></svg>">
     <title>Honey Group - Gestion des éléments</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -51,6 +53,28 @@ require 'includes/items-handler.php';
                         <h3><?php echo htmlspecialchars($item['title']); ?></h3>
                         <p><?php echo htmlspecialchars($item['description']); ?></p>
                         <p><strong><?php echo number_format((float) $item['price'], 0, ',', ' '); ?> Ar</strong></p>
+
+                        <button type="button" class="btn edit-toggle" data-target="edit-<?php echo (int) $item['id']; ?>" style="margin-top:12px;">
+                            Modifier
+                        </button>
+
+                        <form method="POST" action="items.php" id="edit-<?php echo (int) $item['id']; ?>" class="contact-form edit-form" style="display:none; margin-top:12px; text-align:left;">
+                            <input type="hidden" name="id" value="<?php echo (int) $item['id']; ?>">
+                            <div>
+                                <label for="title-<?php echo (int) $item['id']; ?>">Titre</label>
+                                <input type="text" id="title-<?php echo (int) $item['id']; ?>" name="title" value="<?php echo htmlspecialchars($item['title']); ?>" required>
+                            </div>
+                            <div>
+                                <label for="description-<?php echo (int) $item['id']; ?>">Description</label>
+                                <textarea id="description-<?php echo (int) $item['id']; ?>" name="description" rows="2"><?php echo htmlspecialchars($item['description']); ?></textarea>
+                            </div>
+                            <div>
+                                <label for="price-<?php echo (int) $item['id']; ?>">Prix (Ar)</label>
+                                <input type="number" step="0.01" id="price-<?php echo (int) $item['id']; ?>" name="price" value="<?php echo htmlspecialchars((string) $item['price']); ?>" required>
+                            </div>
+                            <button type="submit" name="action_update" class="btn">Enregistrer</button>
+                        </form>
+
                         <form method="POST" action="items.php" style="margin-top:12px;">
                             <input type="hidden" name="id" value="<?php echo (int) $item['id']; ?>">
                             <button type="submit" name="action_delete" class="btn" style="background:#c0392b;color:#fff;">
@@ -68,6 +92,6 @@ require 'includes/items-handler.php';
     </section>
 
     <?php include 'includes/footer.php'; ?>
-    <script src="js/script.js"></script>
+    <script src="js/script.js?v=2"></script>
 </body>
 </html>
